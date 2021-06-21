@@ -2,14 +2,20 @@
 
 namespace allTdL.Core.aCube
 {
-
-
-    public class Cube : CubeBase
+    /// <summary>
+    /// A cube class.
+    /// </summary>
+    public class Cube : BaseCube
     {
-        public Cube(CubeType cubeType = CubeType.Empty) : base(cubeType)
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Cube"/> class.
+        /// </summary>
+        /// <param name="cubeType">The cube type.</param>
+        protected Cube(CubeType cubeType = CubeType.Empty) : base(cubeType)
         {
         }
 
+        ///<inheritdoc/>
         public override string ToString()
         {
             return string.IsNullOrEmpty(Name) ? base.ToString() : $"[{CubeType}|{Name}]";

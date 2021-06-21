@@ -2,19 +2,16 @@
 
 namespace allTdL.Core.aCube.Internal
 {
-    public abstract class CubeBase : ICube
+    public abstract class BaseCube : ICube
     {
         public CubeType CubeType { get; }
         public string Name { get; set; }
         public string Tag { get; set; }
-        protected CubeBase(CubeType cubeType)
+        protected BaseCube(CubeType cubeType)
         {
             CubeType = cubeType;
         }
 
-        //protected CubeBase()
-        //{
-        //    CubeType = CubeType.Empty;
-        //}
+       
     }
 }

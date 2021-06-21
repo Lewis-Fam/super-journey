@@ -12,7 +12,6 @@
   <ItemGroup>
     <ProjectReference Include="..\allTdL.Core\allTdL.Core.csproj" />
     <ProjectReference Include="..\mods\allTdL.Mods.ToDo\allTdL.Mods.ToDo.csproj" />
-    <ProjectReference Include="..\mods\Module.ControlsSample\Module.ControlsSample.csproj" />
     <ProjectReference Include="..\mods\Module.Manager\Module.Manager.csproj" />
     <ProjectReference Include="..\mods\ModuleA\ModuleA.csproj" />
     <ProjectReference Include="..\mods\ModuleFileBrowser\ModuleFileBrowser.csproj" />

@@ -5,13 +5,11 @@
     <AssemblyName>allTdL.Core</AssemblyName>
   </PropertyGroup>
   <ItemGroup>
+    <PackageReference Include="LewisFam.Common" Version="1.1.0" />
     <PackageReference Include="Prism.Wpf" Version="8.1.97" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Common\MVVM\" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\..\..\..\..\..\lewisfam\LewisFam.Common\src\LewisFam.Common.csproj" />
   </ItemGroup>
   <ItemGroup>
     <None Update="License.md">

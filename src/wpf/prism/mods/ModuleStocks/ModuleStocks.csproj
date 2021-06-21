@@ -5,6 +5,7 @@
     <AssemblyName>ModuleStocks</AssemblyName>
   </PropertyGroup>
   <ItemGroup>
+    <PackageReference Include="LewisFam.Common" Version="1.1.0" />
     <PackageReference Include="Prism.Wpf" Version="8.1.97" />
     <PackageReference Include="Syncfusion.Grid.WPF" Version="19.1.0.64" />
   </ItemGroup>

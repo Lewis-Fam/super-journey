@@ -7,8 +7,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "allTdL", "allTdL\allTdL.csp
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "allTdL.Core", "allTdL.Core\allTdL.Core.csproj", "{43CF6AB9-B621-47DA-84F3-AC2BAB637EF5}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LewisFam.Common", "..\..\..\..\..\lewisfam\LewisFam.Common\src\LewisFam.Common.csproj", "{41BAF7E6-0A1A-417D-BD5A-1C48D9701000}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Module.Manager", "mods\Module.Manager\Module.Manager.csproj", "{BD69E2E0-662C-4354-B6E6-C73F6F5E6117}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "allTdL.Mods.ToDo", "mods\allTdL.Mods.ToDo\allTdL.Mods.ToDo.csproj", "{79EECB64-7625-4658-B7BC-DD121CA58A2D}"
@@ -45,10 +43,6 @@ Global
 		{43CF6AB9-B621-47DA-84F3-AC2BAB637EF5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{43CF6AB9-B621-47DA-84F3-AC2BAB637EF5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{43CF6AB9-B621-47DA-84F3-AC2BAB637EF5}.Release|Any CPU.Build.0 = Release|Any CPU
-		{41BAF7E6-0A1A-417D-BD5A-1C48D9701000}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{41BAF7E6-0A1A-417D-BD5A-1C48D9701000}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{41BAF7E6-0A1A-417D-BD5A-1C48D9701000}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{41BAF7E6-0A1A-417D-BD5A-1C48D9701000}.Release|Any CPU.Build.0 = Release|Any CPU
 		{BD69E2E0-662C-4354-B6E6-C73F6F5E6117}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{BD69E2E0-662C-4354-B6E6-C73F6F5E6117}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BD69E2E0-662C-4354-B6E6-C73F6F5E6117}.Release|Any CPU.ActiveCfg = Release|Any CPU

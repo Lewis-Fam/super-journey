@@ -1,0 +1,14 @@
+﻿<Window
+    x:Class="allTdL.Views.ShellWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:prism="http://prismlibrary.com/"
+    xmlns:strings="clr-namespace:allTdL.Core.Strings;assembly=allTdL.Core"
+    Title="{Binding Title}"
+    Width="1200"
+    Height="800"
+    prism:ViewModelLocator.AutoWireViewModel="True" WindowState="Maximized">
+    <Grid>
+        <ContentControl prism:RegionManager.RegionName="{x:Static strings:RegionNames.ShellContentRegion}" />
+    </Grid>
+</Window>

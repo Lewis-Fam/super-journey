@@ -6,7 +6,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\..\..\..\lewisfam\LewisFam.Common\src\LewisFam.Common.csproj" />
+    <PackageReference Include="HtmlAgilityPack" Version="1.11.34" />
   </ItemGroup>
 
 </Project>

@@ -1,0 +1,30 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <UseWPF>true</UseWPF>
+    <AssemblyName>allTdL.Mods.ToDo</AssemblyName>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Prism.Wpf" Version="8.1.97" />
+    <PackageReference Include="Syncfusion.SfGrid.WPF" Version="19.1.0.63" />
+    <PackageReference Include="Syncfusion.Tools.WPF" Version="19.1.0.63" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\allTdL.Core\allTdL.Core.csproj" />
+    <ProjectReference Include="..\..\services\allTdL.Services\allTdL.Services.csproj" />
+    <ProjectReference Include="..\ModuleA\ModuleA.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Update="Properties\Settings.Designer.cs">
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Update="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+</Project>

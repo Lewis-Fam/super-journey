@@ -1,0 +1,29 @@
+﻿<UserControl
+    x:Class="ModuleStocks.Views.Watchlist"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:ModuleStocks.Views"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:prism="http://prismlibrary.com/"
+    d:DesignHeight="450"
+    d:DesignWidth="800"
+    prism:ViewModelLocator.AutoWireViewModel="True"
+    mc:Ignorable="d">
+    <DockPanel>
+        <Grid>
+            <StackPanel>
+                <TextBox Text="{Binding SearchSymbol}" />
+                <Button Command="{Binding SearchCommand}" Content="Search" />
+                <DataGrid AutoGenerateColumns="False" ItemsSource="{Binding Stocks, Mode=TwoWay}">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Binding="{Binding Symbol}" Header="Symbol" />
+                        <DataGridTextColumn Binding="{Binding TickerId}" Header="TickerId" />
+                    </DataGrid.Columns>
+                </DataGrid>
+                <TextBlock Text="Hello"></TextBlock>
+                <Button Command="{Binding SaveCommand}" Content="Save" />
+            </StackPanel>
+        </Grid>
+    </DockPanel>
+</UserControl>

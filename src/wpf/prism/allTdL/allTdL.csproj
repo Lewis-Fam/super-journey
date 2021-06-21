@@ -1,0 +1,23 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <UseWPF>true</UseWPF>
+    <AssemblyName>allTdL</AssemblyName>
+    <ApplicationIcon>t.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Prism.Unity" Version="8.1.97" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\allTdL.Core\allTdL.Core.csproj" />
+    <ProjectReference Include="..\mods\allTdL.Mods.ToDo\allTdL.Mods.ToDo.csproj" />
+    <ProjectReference Include="..\mods\Module.ControlsSample\Module.ControlsSample.csproj" />
+    <ProjectReference Include="..\mods\Module.Manager\Module.Manager.csproj" />
+    <ProjectReference Include="..\mods\ModuleA\ModuleA.csproj" />
+    <ProjectReference Include="..\mods\ModuleFileBrowser\ModuleFileBrowser.csproj" />
+    <ProjectReference Include="..\mods\ModuleStocks\ModuleStocks.csproj" />
+    <ProjectReference Include="..\Services\allTdL.Services.Interfaces\allTdL.Services.Interfaces.csproj" />
+    <ProjectReference Include="..\Services\allTdL.Services\allTdL.Services.csproj" />
+  </ItemGroup>
+</Project>

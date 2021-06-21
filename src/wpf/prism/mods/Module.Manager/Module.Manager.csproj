@@ -1,0 +1,14 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <UseWPF>true</UseWPF>
+    <AssemblyName>ModuleManager</AssemblyName>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Prism.Wpf" Version="8.1.97" />
+    <PackageReference Include="Syncfusion.Tools.WPF" Version="19.1.0.63" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\allTdL.Core\allTdL.Core.csproj" />
+  </ItemGroup>
+</Project>

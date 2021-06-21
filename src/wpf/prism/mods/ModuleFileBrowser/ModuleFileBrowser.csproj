@@ -1,0 +1,28 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <UseWPF>true</UseWPF>
+    <AssemblyName>ModuleFileBrowser</AssemblyName>
+  </PropertyGroup>
+  <ItemGroup>
+    <None Remove="Assets\treegrid\Directory.png" />
+    <None Remove="Assets\treegrid\DriveNode.png" />
+    <None Remove="Assets\treegrid\FileExplorer_Icon.png" />
+    <None Remove="Assets\treegrid\Footer.png" />
+    <None Remove="Assets\treegrid\Header.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Prism.Wpf" Version="8.1.97" />
+    <PackageReference Include="Syncfusion.SfGrid.WPF" Version="19.1.0.63" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\allTdL.Core\allTdL.Core.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\treegrid\Directory.png" />
+    <Resource Include="Assets\treegrid\DriveNode.png" />
+    <Resource Include="Assets\treegrid\FileExplorer_Icon.png" />
+    <Resource Include="Assets\treegrid\Footer.png" />
+    <Resource Include="Assets\treegrid\Header.png" />
+  </ItemGroup>
+</Project>

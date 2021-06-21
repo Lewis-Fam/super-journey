@@ -1,0 +1,61 @@
+﻿<UserControl
+    x:Class="allTdL.Mods.ToDo.Views.ViewToDoItemList"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
+    xmlns:local="clr-namespace:allTdL.Mods.ToDo.Views"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:prism="http://prismlibrary.com/"
+    xmlns:syncfusion="http://schemas.syncfusion.com/wpf"
+    d:DesignHeight="300"
+    d:DesignWidth="300"
+    prism:ViewModelLocator.AutoWireViewModel="True"
+    mc:Ignorable="d">
+    <Grid x:Name="LayoutRoot">
+        <!--<i:Interaction.Triggers>
+            <i:EventTrigger EventName="LostFocus">
+                <prism:InvokeCommandAction Command="{Binding SaveCommand}" />
+            </i:EventTrigger>
+        </i:Interaction.Triggers>-->
+        <StackPanel VerticalAlignment="Center" Orientation="Vertical">
+            <syncfusion:SfDataGrid
+                x:Name="_listOfTasks"
+                Height="200"
+                AllowDraggingColumns="True"
+                AllowEditing="True"
+                AllowResizingColumns="True"
+                AllowResizingHiddenColumns="True"
+                AutoGenerateColumns="True"
+                Background="Aqua"
+                HideEmptyGridViewDefinition="True"
+                ItemsSource="{Binding Items}"
+                ReuseRowsOnItemssourceChange="True"
+                SelectedItem="{Binding SelectedItem}"
+                UseLayoutRounding="True">
+                <syncfusion:SfDataGrid.ContextMenu>
+                    <ContextMenu StaysOpen="True">
+                        <MenuItem Command="{Binding CreateCommand}" Header="Create" />
+                        <MenuItem Command="{Binding DeleteCommand}" Header="Delete" />
+                        <MenuItem Command="{Binding SaveCommand}" Header="Save" />
+                    </ContextMenu>
+                </syncfusion:SfDataGrid.ContextMenu>
+                <i:Interaction.Triggers>
+                    <i:EventTrigger EventName="CurrentCellValueChanged">
+                        <prism:InvokeCommandAction Command="{Binding SaveCommand}" />
+                    </i:EventTrigger>
+                </i:Interaction.Triggers>
+                <syncfusion:SfDataGrid.Columns>
+                    <syncfusion:GridTextColumn HeaderText="Description" MappingName="Description" />
+                    <syncfusion:GridCheckBoxColumn HeaderText="IsCompleted" MappingName="IsCompleted" />
+                </syncfusion:SfDataGrid.Columns>
+            </syncfusion:SfDataGrid>
+            <!--<ContentControl prism:RegionManager.RegionContext="{Binding SelectedItem, ElementName=_listOfTasks}" prism:RegionManager.RegionName="ToDoItemDetailRegion" />-->
+            <syncfusion:ButtonAdv
+                Width="75"
+                Height="35"
+                Label="ButtonA" />
+        </StackPanel>
+        <!--<TextBlock Text="{Binding Selected}" />-->
+    </Grid>
+</UserControl>

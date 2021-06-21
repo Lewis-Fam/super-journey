@@ -1,12 +1,18 @@
 ﻿using System;
+using LewisFam.CmdLine;
 
 namespace CmdLine
 {
-    class Program
+    class Program : BaseLewisFamConsole
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            SetColor(ConsoleColor.DarkMagenta, ConsoleColor.White);
+            Console.WriteLine(HelloWorld);
+        }
+
+        static void JsonSample()
+        {
         }
     }
 }

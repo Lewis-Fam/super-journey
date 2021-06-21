@@ -4,27 +4,10 @@
 - WPF .NETCore 3.1
 - Prism Modularity
 - Real-Time stock quotes from both [Cnbc] & [Webull]
- 
-## Tech
-
-allTdL uses a number of open source projects to work properly:
-
-- [Prism] - Prism is a framework for building loosely coupled, maintainable, and testable XAML applications in WPF, Xamarin Forms, and Uno / Win UI Applications
-- [LewisFam.Common] - A simple C# common library. Free and open source.
-- [LewisFam.Stocks] - A Stock and Option prices API.
-
-And of course allTdL itself is open source with a [public repository][allTdL] on GitHub.
-
-## Modules
-
-| Assembly File | Module Type | Startup Loaded |
-| ----------- | ----------- | ----------- |
-| ModuleManager.dll | Module.Manager.ManagerModule, ModuleManager, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null | True
-| ModuleA.dll | ModuleA.ModuleAModule, ModuleA, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null | True
-| allTdL.Mods.ToDo.ToDoModule.dll | allTdL.Mods.ToDo.ToDoModule, allTdL.Mods.ToDo, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null | True
-| ModuleStocks.dll | ModuleStocks.ModuleStocksModule, ModuleStocks, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null | True
 
 ## Configuration
+
+### Modules
 
 ##### App.config
 ```xml
@@ -35,6 +18,13 @@ And of course allTdL itself is open source with a [public repository][allTdL] on
     <module assemblyFile="ModuleStocks.dll" moduleType="ModuleStocks.ModuleStocksModule, ModuleStocks, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" moduleName="ModuleStocksModule" startupLoaded="True" />
 </modules>
 ```
+
+| Assembly File | Module Type | Startup Loaded |
+| ----------- | ----------- | ----------- |
+| ModuleManager.dll | Module.Manager.ManagerModule, ModuleManager, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null | True
+| ModuleA.dll | ModuleA.ModuleAModule, ModuleA, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null | True
+| allTdL.Mods.ToDo.ToDoModule.dll | allTdL.Mods.ToDo.ToDoModule, allTdL.Mods.ToDo, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null | True
+| ModuleStocks.dll | ModuleStocks.ModuleStocksModule, ModuleStocks, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null | True
 
 ##### Project Reference
 Add modules to the override ConfigureModuleCatalog method in the app.xml.cs file.
@@ -52,6 +42,16 @@ protected override void ConfigureModuleCatalog(IModuleCatalog moduleCatalog)
     1. ContentRegion
     2. LeftRegion
     3. RightRegion
+
+## Tech
+
+allTdL uses a number of open source projects to work properly:
+
+- [Prism] - Prism is a framework for building loosely coupled, maintainable, and testable XAML applications in WPF, Xamarin Forms, and Uno / Win UI Applications
+- [LewisFam.Common] - A simple C# common library. Free and open source.
+- [LewisFam.Stocks] - A Stock and Option prices API.
+
+And of course allTdL itself is open source with a [public repository][allTdL] on GitHub.
 
 ## License
 

@@ -5,13 +5,11 @@
     <AssemblyName>ModuleStocks</AssemblyName>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="LewisFam.Common" Version="1.1.0" />
-    <PackageReference Include="Prism.Wpf" Version="8.1.97" />
     <PackageReference Include="Syncfusion.Grid.WPF" Version="19.1.0.64" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\..\..\..\..\stocks\src\LewisFam.Stocks\LewisFam.Stocks.csproj" />
     <ProjectReference Include="..\..\allTdL.Core\allTdL.Core.csproj" />
+    <ProjectReference Include="..\..\..\..\..\..\..\stocks\src\LewisFam.Stocks\LewisFam.Stocks.csproj" />
   </ItemGroup>
   <ItemGroup>
     <Compile Update="Properties\Settings.Designer.cs">

@@ -12,7 +12,6 @@
   <ItemGroup>
     <ProjectReference Include="..\..\allTdL.Core\allTdL.Core.csproj" />
     <ProjectReference Include="..\..\services\allTdL.Services\allTdL.Services.csproj" />
-    <ProjectReference Include="..\ModuleA\ModuleA.csproj" />
   </ItemGroup>
   <ItemGroup>
     <Compile Update="Properties\Settings.Designer.cs">

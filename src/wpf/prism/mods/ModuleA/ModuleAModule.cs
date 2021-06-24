@@ -1,4 +1,5 @@
 ﻿using allTdL.Core.Mvvm;
+using allTdL.Mvvm;
 using ModuleA.Views;
 
 using Prism.Ioc;

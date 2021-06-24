@@ -1,7 +1,8 @@
 ﻿using System.Diagnostics;
 using allTdL.Core.Helper;
 using allTdL.Core.Mvvm;
-using allTdL.Core.Strings;
+using allTdL.Mvvm;
+using allTdL.Mvvm.Strings;
 using LewisFam.Stocks.ThirdParty.Cnbc;
 using LewisFam.Stocks.ThirdParty.Services;
 using LewisFam.Stocks.ThirdParty.Webull;

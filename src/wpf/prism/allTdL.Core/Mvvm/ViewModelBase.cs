@@ -1,6 +1,6 @@
 ﻿using Prism.Navigation;
 
-namespace allTdL.Core.Mvvm
+namespace allTdL.Mvvm
 {
     /// <summary>A view model base class.</summary>
     public abstract class ViewModelBase : BindableObject, IDestructible

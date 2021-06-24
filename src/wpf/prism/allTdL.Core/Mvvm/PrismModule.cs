@@ -2,7 +2,7 @@
 using Prism.Modularity;
 using Prism.Regions;
 
-namespace allTdL.Core.Mvvm
+namespace allTdL.Mvvm
 {
     /// <summary>
     /// Implementation of <see cref="IModule"/>.

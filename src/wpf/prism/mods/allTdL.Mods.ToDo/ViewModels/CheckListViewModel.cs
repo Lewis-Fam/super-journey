@@ -2,6 +2,7 @@
 using System.Collections.ObjectModel;
 using System.IO;
 using allTdL.Core.Mvvm;
+using allTdL.Mvvm;
 using allTdL.Services.Interfaces;
 
 using Prism.Regions;

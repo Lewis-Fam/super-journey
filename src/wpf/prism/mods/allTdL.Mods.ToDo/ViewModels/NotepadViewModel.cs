@@ -5,7 +5,8 @@ using System.Text;
 using System.Windows.Input;
 
 using allTdL.Core.Mvvm;
-using allTdL.Core.Mvvm.Events;
+using allTdL.Mvvm;
+using allTdL.Mvvm.Events;
 using Microsoft.Win32;
 
 using Prism.Commands;

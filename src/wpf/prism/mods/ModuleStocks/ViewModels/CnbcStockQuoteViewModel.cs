@@ -5,6 +5,7 @@ using System.Linq;
 using System.Threading.Tasks;
 
 using allTdL.Core.Mvvm;
+using allTdL.Mvvm;
 using LewisFam.Utils;
 using LewisFam.Stocks.Models;
 using LewisFam.Stocks.ThirdParty.Cnbc.Models;

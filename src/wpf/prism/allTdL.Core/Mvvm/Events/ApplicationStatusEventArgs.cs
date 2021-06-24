@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace allTdL.Core.Mvvm.Events
+namespace allTdL.Mvvm.Events
 {
     public class ApplicationStatusEventArgs : EventArgs
     {

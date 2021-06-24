@@ -1,9 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-
-using allTdL.Core.Mvvm.Events;
-
+using allTdL.Mvvm.Events;
 using Prism.Commands;
 using Prism.Events;
 using Prism.Mvvm;

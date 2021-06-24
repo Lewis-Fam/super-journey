@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using allTdL.Core.Mvvm;
+using allTdL.Mvvm;
 using Prism.Commands;
 using Prism.Mvvm;
 using Prism.Regions;

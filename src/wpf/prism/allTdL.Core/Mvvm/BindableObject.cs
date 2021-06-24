@@ -4,7 +4,7 @@ using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using LewisFam;
 
-namespace allTdL.Core.Mvvm
+namespace allTdL.Mvvm
 {
     /// <summary>Implementation of <see cref="INotifyPropertyChanged"/> to simplify model binding.</summary>
     public abstract class BindableObject : LewisFamObject, INotifyPropertyChanged

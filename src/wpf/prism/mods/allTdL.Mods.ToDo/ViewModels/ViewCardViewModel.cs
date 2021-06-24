@@ -8,6 +8,7 @@ using System.Windows.Input;
 using allTdL.Core;
 using allTdL.Core.Data.Models;
 using allTdL.Core.Mvvm;
+using allTdL.Mvvm;
 using Prism.Commands;
 using Prism.Regions;
 

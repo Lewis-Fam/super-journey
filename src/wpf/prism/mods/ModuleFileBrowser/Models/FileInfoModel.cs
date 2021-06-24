@@ -1,6 +1,7 @@
 using System;
 using System.IO;
 using allTdL.Core.Mvvm;
+using allTdL.Mvvm;
 
 namespace ModuleFileBrowser.Models
 {

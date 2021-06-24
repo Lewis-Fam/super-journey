@@ -1,10 +1,11 @@
 ﻿using System;
 using System.Diagnostics;
-using allTdL.Core.Strings;
+using allTdL.Core.Mvvm;
+using allTdL.Mvvm.Strings;
 using Prism.Commands;
 using Prism.Regions;
 
-namespace allTdL.Core.Mvvm
+namespace allTdL.Mvvm
 {
     /// <summary>The navigation view model base.</summary>
     public abstract class NavigationViewModelBase : ViewModelBase, IConfirmNavigationRequest

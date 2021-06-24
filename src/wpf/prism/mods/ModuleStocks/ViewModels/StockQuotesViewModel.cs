@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using System.Windows;
 
 using allTdL.Core.Mvvm;
-
+using allTdL.Mvvm;
 using LewisFam.Stocks;
 using LewisFam.Stocks.Models;
 using LewisFam.Stocks.ThirdParty.Services;

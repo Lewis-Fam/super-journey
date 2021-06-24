@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Text;
-using allTdL.Core.Mvvm.Events;
+using allTdL.Mvvm.Events;
 using Prism.Events;
 using Prism.Mvvm;
 

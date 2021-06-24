@@ -1,5 +1,5 @@
 ﻿
-namespace allTdL.Core.Mvvm
+namespace allTdL.Mvvm
 {
     public class SelectableItem<T> : BindableObject
     {

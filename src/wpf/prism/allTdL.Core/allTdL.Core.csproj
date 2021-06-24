@@ -9,13 +9,14 @@
     <Copyright>LewisFam</Copyright>
     <Description>A free and simple common library for Desktop Mvvm Prism.Wpf</Description>
     <NeutralLanguage>en-US</NeutralLanguage>
+    <RootNamespace>allTdL</RootNamespace>
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="LewisFam.Common" Version="1.1.1" />
     <PackageReference Include="Prism.Wpf" Version="8.1.97" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Common\MVVM\" />
+    <Folder Include="Core\Common\MVVM\" />
   </ItemGroup>
   <ItemGroup>
     <None Update="License.md">

@@ -1,7 +1,8 @@
 ﻿using System.Configuration;
 using allTdL.Core;
 using allTdL.Core.Mvvm;
-using allTdL.Core.Strings;
+using allTdL.Mvvm;
+using allTdL.Mvvm.Strings;
 using Module.Manager.ViewModels;
 using Module.Manager.Views;
 

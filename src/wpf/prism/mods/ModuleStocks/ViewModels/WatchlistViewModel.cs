@@ -1,5 +1,6 @@
 ﻿using System.IO;
 using allTdL.Core.Mvvm;
+using allTdL.Mvvm;
 using LewisFam.Stocks.Models;
 using LewisFam.Stocks.ThirdParty.Services;
 using LewisFam.Stocks.ThirdParty.Webull.Models;

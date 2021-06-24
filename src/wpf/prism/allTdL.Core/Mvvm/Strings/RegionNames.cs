@@ -1,4 +1,4 @@
-﻿namespace allTdL.Core.Strings
+﻿namespace allTdL.Mvvm.Strings
 {        
     public static class RegionNames
     {

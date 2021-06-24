@@ -67,7 +67,7 @@ namespace allTdL.Core.Helper
         private static string FindLicenseKey()
         {
             int levelsToCheck = 12;
-            string filePath = @"SyncfusionLicense.txt";
+            string filePath = @"allTdLLicenseKey.txt";
 
             string rootPath = System.IO.Path.GetDirectoryName(Assembly.GetEntryAssembly().Location.Replace(@"file:///", ""));
 

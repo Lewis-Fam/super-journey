@@ -3,7 +3,7 @@ using allTdL.Core.Mvvm;
 using LewisFam.Stocks.Models;
 using LewisFam.Stocks.ThirdParty.Services;
 using LewisFam.Stocks.ThirdParty.Webull.Models;
-using LewisFam.Utils.Json;
+using LewisFam.Utils;
 using ModuleStocks.Models;
 using Prism.Commands;
 using Prism.Regions;

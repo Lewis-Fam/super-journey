@@ -1,33 +1,51 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.IO;
 using System.Net.Http;
 using System.Threading.Tasks;
 
 using HtmlAgilityPack;
 
 using LewisFam.Html.Strings;
+using LewisFam.Utils;
 using LewisFam.Well_Known;
 
 namespace LewisFam.Html
 {
     public class AttributeSome
     {
+        #region Properties
+
         public string Name { get; set; }
 
         public string Value { get; set; }
+
+        #endregion Properties
     }
 
+    /// <summary>The Html Util.</summary>
+    /// <remarks>https://html-agility-pack.net/</remarks>
     public class HtmlUtil
     {
+        #region Fields
+
         public static HtmlUtil Default = new HtmlUtil();
 
         private HttpClient _http;
+
+        #endregion Fields
+
+        #region Constructors
 
         public HtmlUtil()
         {
             Debug.WriteLine($"{nameof(HtmlUtil)} : ctor");
         }
+
+        #endregion Constructors
+
+        #region Properties
 
         public HtmlDocument HtmlDocument
         {
@@ -37,17 +55,19 @@ namespace LewisFam.Html
 
         public bool IsLoaded { get; private set; }
 
-        /// <summary>GetDocumentNodeDescendants</summary>
+        #endregion Properties
+
+        #region Methods
+
+        /// <summary>GetDocumentNodeDescendantsList</summary>
         /// <param name="htmlDescendantName"></param>
         /// <exception cref="ArgumentNullException"></exception>
-        public List<string> GetDocumentNodeDescendants(string htmlDescendantName = HtmlDescendantName.Name)
+        public List<string> GetDocumentNodeDescendantsList(string htmlDescendantName = HtmlDescendantName.Name)
         {
-            Debug.WriteLine($"{nameof(GetDocumentNodeDescendants)} : {nameof(htmlDescendantName)}={htmlDescendantName}");
+            Debug.WriteLine($"{nameof(GetDocumentNodeDescendantsList)} : {nameof(htmlDescendantName)}={htmlDescendantName}");
 
             if (HtmlDocument == null)
-            {
                 throw new ArgumentNullException("The HtmlDocument is not loaded.");
-            }
 
             var rtn = new List<string>();
 
@@ -78,14 +98,55 @@ namespace LewisFam.Html
             return rtn;
         }
 
-        public async Task LoadAsync(string uri)
+        public void LoadFile(string path)
         {
-            Debug.WriteLine($"{nameof(LoadAsync)} : {nameof(uri)}={uri}");
-            if (!string.IsNullOrEmpty(uri) && !IsLoaded)
-            {
-                HtmlDocument = await LoadHtmlDocumentAsync(uri);
-            }
-            await Task.CompletedTask;
+            Debug.WriteLine($"{nameof(LoadFile)} : {nameof(path)}={path}");
+            IsLoaded = false;
+            HtmlDocument = new HtmlDocument();
+            HtmlDocument.Load(path);
+            IsLoaded = true;
+        }
+
+        public void LoadHtml(string html)
+        {
+            Debug.WriteLine($"{nameof(LoadHtml)} : {nameof(html)}={html}");
+            IsLoaded = false;
+            HtmlDocument = new HtmlDocument();
+            HtmlDocument.LoadHtml(html);
+            IsLoaded = true;
+        }
+
+        public void LoadWeb(string uri)
+        {
+            Debug.WriteLine($"{nameof(LoadWeb)} : {nameof(uri)}={uri}");
+            IsLoaded = false;
+            var web = new HtmlWeb();
+            HtmlDocument = web.Load(uri);
+            IsLoaded = true;
+        }
+
+        /// <summary>Saves the HtmlDocument.</summary>
+        /// <param name="path">    The path.</param>
+        /// <param name="fileMode">The file mode.</param>
+        /// <remarks><seealso cref="HtmlAgilityPack"/></remarks>
+        public void Save(string path, FileMode fileMode = FileMode.OpenOrCreate)
+        {
+            if (HtmlDocument == null)
+                throw new ArgumentNullException("The HtmlDocument is not loaded.");
+
+            FileUtil.Stream.Save(path, HtmlDocument.Text, fileMode);
+        }
+
+        /// <summary>Saves the HtmlDocument Async.</summary>
+        /// <param name="path">    The path.</param>
+        /// <param name="fileMode">The file mode.</param>
+        /// <remarks><seealso cref="HtmlAgilityPack"/></remarks>
+        public async Task SaveAsync(string path, FileMode fileMode = FileMode.OpenOrCreate)
+        {
+            if (HtmlDocument == null)
+                throw new ArgumentNullException("The HtmlDocument is not loaded.");
+
+            await FileUtil.Stream.SaveAsync(path, HtmlDocument.Text, fileMode);
         }
 
         /// <inheritdoc cref="HtmlNode.SelectNodes"/>
@@ -101,13 +162,14 @@ namespace LewisFam.Html
             return HtmlDocument?.DocumentNode?.SelectNodes(xpath);
         }
 
-        protected async Task<HtmlDocument> LoadHtmlDocumentAsync(string uri)
+        private async Task<HtmlDocument> GetHtml(string uri)
         {
-            Debug.WriteLine($"{nameof(LoadHtmlDocumentAsync)} : {nameof(uri)}={uri}");
+            Debug.WriteLine($"{nameof(GetHtml)} : {nameof(uri)}={uri}");
 
             if (string.IsNullOrEmpty(uri))
                 return null;
 
+            IsLoaded = false;
             _http = new HttpClient();
             using var request = await _http.GetAsync(uri);
             if (request.IsSuccessStatusCode)
@@ -126,9 +188,11 @@ namespace LewisFam.Html
                         break;
                 }
             }
-            IsLoaded = false;
+
             return null;
         }
+
+        #endregion Methods
 
         private void SampleRecordParse()
         {
@@ -162,10 +226,14 @@ namespace LewisFam.Html
 
     public class Record
     {
+        #region Properties
+
         public string company { get; set; }
 
         public string Name { get; set; }
 
         public string street { get; set; }
+
+        #endregion Properties
     }
 }

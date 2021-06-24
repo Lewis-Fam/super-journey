@@ -1,68 +1,124 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using LewisFam.Html;
-
+﻿using LewisFam.Html;
 using System;
-using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
-using System.Text;
-using System.Threading.Channels;
 using System.Threading.Tasks;
-using LewisFam.Html.Strings;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace LewisFam.Html.Tests
 {
     [TestClass()]
     public class HtmlUtilTests
     {
+        #region Fields
 
-        string url1 = "https://www.cnbc.com/quotes/U";
-        string url2 = "https://html-agility-pack.net/select-nodes";
-        [TestMethod()]
-        public async Task TestHtmlTest()
-        {
-            
-        }
+        private const string htmlStrg = "<div><img src=\"\" style=\"width: 420px; height: 420px\" height=\"42\" width=\"42\" /><img style=\" width: 42px; height: 42px; \" /></div>";
+
+        private const string url1 = "https://www.cnbc.com/quotes/U";
+
+        private const string url2 = "https://html-agility-pack.net/select-nodes";
+
+        #endregion Fields
+
+        #region Methods
 
         [TestMethod()]
-        public async Task LoadAsyncTest()
+        public async Task GetDocumentNodeDescendantsTest()
         {
-            var loadTest = new HtmlUtil();
-            await loadTest.LoadAsync(url1);
-            Assert.IsTrue(loadTest.IsLoaded, "!loadTest.IsLoaded");
+            HtmlUtil.Default.LoadWeb(url1);
+            var data = HtmlUtil.Default.GetDocumentNodeDescendantsList();
+            Assert.IsTrue(data.Any(), "!data.Any()");
         }
 
         [TestMethod()]
         public async Task IsLoadedTest()
         {
             var loadTest = new HtmlUtil();
-            await loadTest.LoadAsync(url1);
-            var data = loadTest.GetDocumentNodeDescendants(HtmlDescendantName.Name);
+            loadTest.LoadWeb(url1);
+            var data = loadTest.GetDocumentNodeDescendantsList();
             Console.WriteLine(data.Count);
             Assert.IsTrue(loadTest.IsLoaded, "loadTest.IsLoaded");
         }
 
         [TestMethod()]
-        public async Task GetDocumentNodeDescendantsTest()
+        public async Task LoadAsyncTest()
         {
-            await HtmlUtil.Default.LoadAsync(url1);
-            var data = HtmlUtil.Default.GetDocumentNodeDescendants(HtmlDescendantName.Name);
-            Assert.IsTrue(data.Any(), "!data.Any()");
+            var loadTest = new HtmlUtil();
+            loadTest.LoadWeb(url1);
+            Assert.IsTrue(loadTest.IsLoaded, "!loadTest.IsLoaded");
         }
 
         [TestMethod()]
-        public async Task SelectNodesTest_IsNull()
+        public void LoadHtmlTest()
         {
-            await HtmlUtil.Default.LoadAsync(url1);
-            var nodes = HtmlUtil.Default.SelectNodes("//aa");
-            Assert.IsNull(nodes, "nodes != null");
+            var html = new HtmlUtil();
+            html.LoadHtml(htmlStrg);
+            Assert.IsTrue(!string.IsNullOrEmpty(html.HtmlDocument.Text));
+            Console.WriteLine(html.HtmlDocument.Text);
+        }
+
+        [TestMethod()]
+        public async Task SaveAsyncTest()
+        {
+            HtmlUtil.Default.LoadWeb(url1);
+            await HtmlUtil.Default.SaveAsync(@"w:\tmp\test1.html");
+            Assert.Inconclusive("Work in progress.");
+        }
+
+        [TestMethod()]
+        public async Task SaveTest()
+        {
+            HtmlUtil.Default.LoadWeb(url1);
+            HtmlUtil.Default.Save("test.html");
         }
 
         [TestMethod()]
         public async Task SelectNodesTest()
         {
-            await HtmlUtil.Default.LoadAsync(url1);
-            var nodes = HtmlUtil.Default.SelectNodes("//html");
+            HtmlUtil.Default.LoadWeb(url1);
+            var nodes = HtmlUtil.Default.SelectNodes("//a[@href]");
+
             Assert.IsNotNull(nodes, "nodes == null");
+            foreach (var node in nodes)
+            {
+                var a = node.Attributes["href"];
+                Console.WriteLine(a.Value);
+            }
+        }
+
+        [TestMethod()]
+        public async Task SelectNodesTest_Custom()
+        {
+            HtmlUtil.Default.LoadWeb(url1);
+            var nodes = HtmlUtil.Default.SelectNodes("//a[@href]");
+
+            Assert.IsNotNull(nodes, "nodes == null");
+
+            foreach (var node in nodes)
+            {
+                var a = node.Attributes["href"];
+                Console.WriteLine(a.Value);
+            }
+
+            Assert.Inconclusive("Work in progress.");
+        }
+
+        [TestMethod()]
+        public async Task SelectNodesTest_IsNull()
+        {
+            HtmlUtil.Default.LoadWeb(url1);
+            var nodes = HtmlUtil.Default.SelectNodes("//aa");
+            Assert.IsNull(nodes, "nodes != null");
+        }
+
+        #endregion Methods
+
+        [TestMethod()]
+        public void LoadWebTest()
+        {
+            var htmlUtil = new HtmlUtil();
+            htmlUtil.LoadWeb(url1);
+            Console.WriteLine(htmlUtil.HtmlDocument.Text);
         }
     }
 }

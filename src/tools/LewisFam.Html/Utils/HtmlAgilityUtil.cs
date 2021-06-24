@@ -4,14 +4,12 @@ using System.Diagnostics;
 using System.IO;
 using System.Net.Http;
 using System.Threading.Tasks;
-
 using HtmlAgilityPack;
-
 using LewisFam.Html.Strings;
 using LewisFam.Utils;
 using LewisFam.Well_Known;
 
-namespace LewisFam.Html
+namespace LewisFam.Html.Utils
 {
     public class AttributeSome
     {
@@ -24,36 +22,27 @@ namespace LewisFam.Html
         #endregion Properties
     }
 
-    /// <summary>The Html Util.</summary>
+    /// <summary>A HtmlAgilityPack Util.</summary>
     /// <remarks>https://html-agility-pack.net/</remarks>
-    public class HtmlUtil
+    public class HtmlAgilityUtil
     {
         #region Fields
 
-        public static HtmlUtil Default = new HtmlUtil();
+        public static readonly HtmlAgilityUtil Default = new HtmlAgilityUtil();
 
         private HttpClient _http;
-
+                            
         #endregion Fields
-
-        #region Constructors
-
-        public HtmlUtil()
-        {
-            Debug.WriteLine($"{nameof(HtmlUtil)} : ctor");
-        }
-
-        #endregion Constructors
-
+                         
         #region Properties
 
-        public HtmlDocument HtmlDocument
+        public virtual HtmlDocument HtmlDocument
         {
             get;
             protected set;
         }
 
-        public bool IsLoaded { get; private set; }
+        public virtual bool IsLoaded { get; protected set; }
 
         #endregion Properties
 
@@ -77,17 +66,17 @@ namespace LewisFam.Html
                 {
                     case HtmlDescendantName.Name:
                         rtn.Add(descendant.Name);
-                        Debug.WriteLine(descendant.Name);
+                        //Debug.WriteLine(descendant.Name);
                         break;
 
                     case HtmlDescendantName.InnerHtml:
                         rtn.Add(descendant.InnerHtml);
-                        Debug.WriteLine(descendant.InnerHtml);
+                        //Debug.WriteLine(descendant.InnerHtml);
                         break;
 
                     case HtmlDescendantName.InnerText:
                         rtn.Add(descendant.InnerText);
-                        Debug.WriteLine(descendant.InnerText);
+                        //Debug.WriteLine(descendant.InnerText);
                         break;
 
                     default:
@@ -98,6 +87,7 @@ namespace LewisFam.Html
             return rtn;
         }
 
+        ///<inheritdoc cref="HtmlDocument.Load"/>
         public void LoadFile(string path)
         {
             Debug.WriteLine($"{nameof(LoadFile)} : {nameof(path)}={path}");
@@ -107,6 +97,7 @@ namespace LewisFam.Html
             IsLoaded = true;
         }
 
+        ///<inheritdoc cref="HtmlDocument.LoadHtml"/>
         public void LoadHtml(string html)
         {
             Debug.WriteLine($"{nameof(LoadHtml)} : {nameof(html)}={html}");
@@ -116,12 +107,19 @@ namespace LewisFam.Html
             IsLoaded = true;
         }
 
+        ///<inheritdoc cref="HtmlWeb.Load"/>
         public void LoadWeb(string uri)
         {
             Debug.WriteLine($"{nameof(LoadWeb)} : {nameof(uri)}={uri}");
             IsLoaded = false;
-            var web = new HtmlWeb();
-            HtmlDocument = web.Load(uri);
+            HtmlDocument = new HtmlWeb().Load(uri);
+            IsLoaded = true;
+        }
+
+        public async Task LoadWebAsync(string uri)
+        {
+            IsLoaded = false;
+            HtmlDocument = await new HtmlWeb().LoadFromWebAsync(uri);
             IsLoaded = true;
         }
 
@@ -131,8 +129,8 @@ namespace LewisFam.Html
         /// <remarks><seealso cref="HtmlAgilityPack"/></remarks>
         public void Save(string path, FileMode fileMode = FileMode.OpenOrCreate)
         {
-            if (HtmlDocument == null)
-                throw new ArgumentNullException("The HtmlDocument is not loaded.");
+            if (!IsLoaded)
+                throw new ArgumentException($"{nameof(HtmlDocument)} is not loaded.");
 
             FileUtil.Stream.Save(path, HtmlDocument.Text, fileMode);
         }
@@ -143,8 +141,8 @@ namespace LewisFam.Html
         /// <remarks><seealso cref="HtmlAgilityPack"/></remarks>
         public async Task SaveAsync(string path, FileMode fileMode = FileMode.OpenOrCreate)
         {
-            if (HtmlDocument == null)
-                throw new ArgumentNullException("The HtmlDocument is not loaded.");
+            if (!IsLoaded)
+                throw new ArgumentException($"{nameof(HtmlDocument)} is not loaded.");
 
             await FileUtil.Stream.SaveAsync(path, HtmlDocument.Text, fileMode);
         }
@@ -154,10 +152,8 @@ namespace LewisFam.Html
         public HtmlNodeCollection SelectNodes(string xpath = HtmlNodeXPath.Html)
         {
             Debug.WriteLine($"{nameof(SelectNodes)} : {nameof(xpath)}={xpath}");
-            if (HtmlDocument == null)
-            {
-                throw new ArgumentNullException("The HtmlDocument is not loaded.");
-            }
+            if (!IsLoaded)
+                throw new ArgumentException($"{nameof(HtmlDocument)} is not loaded.");
 
             return HtmlDocument?.DocumentNode?.SelectNodes(xpath);
         }

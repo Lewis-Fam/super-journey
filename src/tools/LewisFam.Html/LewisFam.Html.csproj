@@ -10,7 +10,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\..\..\lewisfam\LewisFam.Common\src\LewisFam.Common.csproj" />
+    <ProjectReference Include="..\..\..\..\..\lewisfam\LewisFam.Common\src\LewisFam.Common.csproj" />
   </ItemGroup>
 
 </Project>
